@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Cinema bookings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+    href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <style>
+		table {
+		  font-family: arial, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+		
+		td, th {
+		  border: 1px solid #dddddd;
+		  text-align: left;
+		  padding: 8px;
+		}
+		
+		tr:nth-child(even) {
+		  background-color: #dddddd;
+		}
+		</style>
+</head>
+<body>
+    <h1>Cinema Bookings</h1>
+    <form action="/action_page.php">
+	  <label for="fname">Cinema :</label>
+	  <input type="text" id="fname" name="fname" value="name">
+	  <input type="date" id="fdate" name="fdate" value="date">
+	  <input type="button" onclick="alert('Hello World!')" value="Get Functions"><br>
+	</form> 
+
+	<h2>Movies</h2>
+
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Genre</th>
+	    <th>Hour</th>
+	    <th>Availability</th>
+	  </tr>
+	  <tr>
+	    <td>SuperHeros movies</td>
+	    <td>Action</td>
+	    <td>10:00</td>
+	    <td>Open seets</td>
+	  </tr>
+	  <tr>
+	    <td>SuperHeros movies</td>
+	    <td>Action</td>
+	    <td>10:00</td>
+	    <td>Open seets</td>
+	  </tr>
+	</table>
+    <h2>Availability</h2>
+    <table>
+
+    </table>
+</body>
+</html>
