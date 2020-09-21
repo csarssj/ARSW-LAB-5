@@ -7,8 +7,6 @@
 
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/apimock.js"></script>
-	<script src="js/app.js"></script>
     <link rel="stylesheet"
     href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
     <style>
@@ -34,16 +32,15 @@
     <form action="/action_page.php">
 	  <label for="fname">Cinema :</label>
 	  <input type="text" id="fname" name="fname" value="name">
-	  <input type="date" id="fdate" name="fdate" value="date">
-	  <input type="button" onclick="alert('Hello World!')" value="Get Functions"><br>
+	  <button type="button" class="btn btn-primary" onclick="app.getFunctionsByCinema($('#fname').val())" >Get Functions</button>
 	</form> 
 
     <div class="row">
     <div class="col-md-6">
-      <h2><i id="authorname"></i> Movies:</h2>
+      <h2><i id="cinemaname"></i> Functions:</h2>
     </div>
     <div class="col-md-6">
-      <h2> Current blueprint:<i id="Availability of:"></i> </h2>
+      <h2> Current:<i id="Availability of:"></i> </h2>
     </div>
   </div>
   
@@ -56,7 +53,7 @@
 	    	<th>Hour</th>
 	    	<th>Availability</th>
         </tr>
-        <tbody id="cuerpo"></tbody>
+        <tbody></tbody>
       </table>
 
 
@@ -66,4 +63,6 @@
 			</table>
     </div>
 </body>
+<script src="js/apimock.js"></script>
+<script src="js/app.js"></script>
 </html>
