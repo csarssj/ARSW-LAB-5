@@ -32,7 +32,8 @@
     <form action="/action_page.php">
 	  <label for="fname">Cinema :</label>
 	  <input type="text" id="fname" name="fname" value="name">
-	  <button type="button" class="btn btn-primary" onclick="app.getFunctionsByCinema($('#fname').val())" >Get Functions</button>
+        <input type="text" id="fdate" name="fdate" value="date"/>
+	  <button type="button" class="btn btn-primary" onclick="app.getFunctionsByCinemaAndDate($('#fname').val(),$('#fdate').val())" >Get Functions</button>
 	</form> 
 
     <div class="row">

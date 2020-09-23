@@ -3,33 +3,33 @@ var app = (function (){
 	var cine;
 	var functions =[];
 	var date;
-	
-	var _map = function(cinemas){
-		return cinemap =  cinemas.map(function(cinema){
-            return {cname:cinema.movie.name, cgenre:cinema.movie.genre, cdate: cinema.date};
-        });
-	}
-	
+
+	function _map(list){
+    	return list.map(function(cinema){
+    			return {name:cinema.movie.name, genre:cinema.movie.genre, date: cinema.date.split(" ")[1]}
+    	})
+    }
+
 	var setCine = function(cinema_name){
 		cine = cinema_name;
 	};
 	var setDate = function(cinema_date){
 		date = cinema_date;
 	};
-	
+
 	function table(cinemas) {
         cinemas = _map(cinemas);
 		$("#table").find('tbody').empty();
         cinemas.map(function(cinema) {
             $("#table").append(
 				"<tbody><tr> <td>" +
-                cinema.cname +
+                cinema.name +
                 "</td>" +
                 "<td>" +
-                cinema.cgenre +
+                cinema.genre +
                 "</td>" +
                 "<td>" +
-				cinema.cdate +
+				cinema.date +
                 "</td>" +
                 "<td>" +
                 "false" +
@@ -40,18 +40,27 @@ var app = (function (){
         });
     };
 
-	
+
 	var getFunctionsByCinemaAndDate = function(cinema_name,cinema_date) {
-		
+        setCine(cinema_name);
+        setDate(cinema_date);
+        if (cinema_name != "") {
+        $('#cinemaname').html(cinema_name);
+        api.getFunctionsByCinemaAndDate(cinema_name,cinema_date,table);
+        //api.getFunctionsByCinemaAndDate(cinema_name,cinema_date,fun);
+        //api.getFunctionsByCinema(cinema_name,fun);
+
+        }
     };
 	var getFunctionsByCinema =  function (cinema_name) {
-        setCine(cinema_name);
-        if (cinema_name != "") {
-			$('#cinemaname').html(cinema_name);
-            api.getFunctionsByCinema(cinema_name,table);
-		}
+
     };
-	
+     var fun=function(list){
+     console.log(list);
+     console.log(cine);
+     console.log(date);
+     }
+     /*api.getFunctionsByCinema("cinemaX",fun);*/
 	return {
 		getFunctionsByCinemaAndDate : getFunctionsByCinemaAndDate,
 		getFunctionsByCinema :  getFunctionsByCinema,

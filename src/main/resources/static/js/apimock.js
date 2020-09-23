@@ -21,7 +21,6 @@ apimock = (function () {
                     funct => funct.date.includes(fdate))
             );
         }
-
     }
 
 })();
