@@ -5,7 +5,7 @@
 Si se deseea hacer uso del programa lo primero que debe realizarse el clonar el repositorio almacenado en Github a través del siguiente comando:
 
 ```
-git clone https://github.com/csarssj/ARSW-LAB-4.git
+git clone https://github.com/csarssj/ARSW-LAB-5.git
 
 ```
 O si desea puede descargarlo como archivo zip y luego descomprimirlo en la carpeta que desee.
