@@ -23,29 +23,22 @@ var app = (function (){
     };
 
 	function table(cinemas) {
-        cinemas = _map(cinemas);
-		$("#table").find('tbody').empty();
-
-		//button  = ;
-        cinemas.map(function(cinema) {
-            $("#table").append(
-				"<tbody><tr> <td>" +
-                cinema.name +
-                "</td>" +
-                "<td>" +
-                cinema.genre +
-                "</td>" +
-                "<td>" +
-				cinema.date +
-                "</td>" +
-                "<td>" +
-                 "<tr><td><input type='checkbox' name='record'></td><td>" +
-                //"<input type='button' class='show' value='Consult seats' onclick='app.getFunctionsByCinemaAndDate(\""+cinema.name+"\",\""+cinema.date+"\",\""+getSeats+"\")'></input>"+
-				"</td>" +
-                "</tr>" +
-				"<tbody>"
-            );
-        });
+	    cinemas = _map(cinemas);
+	    $("#body").html("");
+    	var total=0
+    	$("#totalPoints").text(total)
+    	cinemas.map(function(cinema) {
+    		$('#body')
+    			.append(
+    			  `<tr>
+    				<td>`+cinema.name+`</td>
+    				<td>`+cinema.date+`</td>
+    				<td>`+cinema.genre+`</td>`+
+    				"<td><form><button type='button' class='btn btn-primary' onclick='console.log( \"" + cinema.name +'" , "' + cinema.genre +"\")'>Open</button></form></td>"+
+    				//<input type='button' class='show' value='Consult seats' onclick='app.getFunctionsByCinemaAndDate(\""+cinema.name+"\",\""+cinema.date+"\",\""+getSeats+"\")'></input>"+
+    			  `</tr>`
+    			);
+    	});
     };
 
 
