@@ -30,7 +30,7 @@
 <body>
     <h1>Cinema Bookings</h1>
     <form action="/action_page.php">
-	  <label for="fname">Cinema :</label>
+	  <label for="fname">Cinema selected :</label>
 	  <input type="text" id="fname" name="fname" value="name">
         <input type="text" id="fdate" name="fdate" value="date"/>
 	  <button type="button" class="btn btn-primary" onclick="app.getFunctionsByCinemaAndDate($('#fname').val(),$('#fdate').val())" >Get Functions</button>
@@ -38,10 +38,10 @@
 
     <div class="row">
     <div class="col-md-6">
-      <h2><i id="cinemaname"></i> Functions:</h2>
+      <h2><i id="cinemaname"></i> Movies:</h2>
     </div>
     <div class="col-md-6">
-      <h2> Current:<i id="Availability of:"></i> </h2>
+      <h2> Availability of:<i id="current"></i> </h2>
     </div>
   </div>
   
@@ -60,8 +60,8 @@
 
     </div>
     <div class="col-xl-6">
-    		<table>
-			</table>
+        <canvas id="myCanvas" width="600" height="500" style="border:1px solid #000000;">
+        </canvas>
     </div>
 </body>
 <script src="js/apimock.js"></script>
