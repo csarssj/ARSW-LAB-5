@@ -1,5 +1,5 @@
-//var api = apimock;
-var api = apiclient;
+var api = apimock;
+//var api = apiclient;
 var app = (function (){
 	var cine;
 	var functions =[];
