@@ -25,8 +25,6 @@ var app = (function (){
 	function table(cinemas) {
 	    cinemas = _map(cinemas);
 	    $("#body").html("");
-    	var total=0
-    	$("#totalPoints").text(total)
     	cinemas.map(function(cinema) {
     		$('#body')
     			.append(
@@ -34,7 +32,7 @@ var app = (function (){
     				<td>`+cinema.name+`</td>
     				<td>`+cinema.date+`</td>
     				<td>`+cinema.genre+`</td>`+
-    				"<td><form><button type='button' class='btn btn-primary' onclick='console.log( \"" + cinema.name +'" , "' + cinema.genre +"\")'>Open</button></form></td>"+
+    				"<td><form><button type='button' class='btn btn-primary' onclick='app.getFunctionsByCinemaAndDateAndMovie( \"" +  cinema.date +'" , "' + cinema.name +"\")'>Open</button></form></td>"+
     				//<input type='button' class='show' value='Consult seats' onclick='app.getFunctionsByCinemaAndDate(\""+cinema.name+"\",\""+cinema.date+"\",\""+getSeats+"\")'></input>"+
     			  `</tr>`
     			);
@@ -52,13 +50,17 @@ var app = (function (){
             //api.getFunctionsByCinema(cinema_name,fun);
         }
     };
-	var getFunctionsByCinemaAndDateAndMovie =  function (cinema_name,cinema_date,cinema_movie) {
-        setCine(cinema_name);
-        setDate(cinema_date);
+	var getFunctionsByCinemaAndDateAndMovie =  function (cinema_date,cinema_movie) {
+	    //console.log("entra");
+	    //console.log(cine);
+	    //console.log(date+' '+   cinema_date);
+	    //console.log(cinema_date);
+	    //console.log(cinema_movie);
+        setDate(date+' '+   cinema_date);
         setMovie(cinema_movie);
-        if (cinema_name != "" && cinema_date != "" ) {
-            $('#cinemaname').html(cinema_name);
-            api.getFunctionsByCinemaAndDateAndMovie(cinema_name,cinema_date,cinema_movie,fun);
+        if (cine != "" && cinema_date != "" ) {
+            console.log("entra");
+            api.getFunctionsByCinemaAndDateAndMovie(cine,cinema_date,cinema_movie,fun);
             //api.getFunctionsByCinemaAndDate(cinema_name,cinema_date,fun);
             //api.getFunctionsByCinema(cinema_name,fun);
         }

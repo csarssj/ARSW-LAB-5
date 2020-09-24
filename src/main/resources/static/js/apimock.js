@@ -20,8 +20,9 @@ apimock = (function () {
                     funct => funct.date.includes(fdate))
             );
         },
-        /*getFunctionsByCinemaAndDateAndMovie: function (cinema_name, fdate, movie_name, callback) {
+        getFunctionsByCinemaAndDateAndMovie: function (cinema_name, fdate, movie_name, callback) {
             //callback(
+                    console.log("entra");
                     var data = mockdata[cinema_name].functions.filter(
                     funct => funct.date.includes(fdate));
            // callback(
@@ -29,13 +30,8 @@ apimock = (function () {
                     var funcion = data.find(element => element.movie.name === movie_name);
                     callback(funcion);
             //);
-        }*/
-        getFunctionByNameAndDateAndMovieName: function (cinema, dateF, movie, callback) {
-                    var data = cinemas[cinema].functions.filter(
-                        funct => funct.date.includes(dateF));
-                    var functionCinema = data.filter (element => element.movie.name == movie);
-                    callback(functionCinema);
         }
+
     }
 
 })();
