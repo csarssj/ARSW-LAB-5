@@ -49,7 +49,7 @@ La fecha de las funciones a consultar
 El listado de nombre, género y hora de las películas de las funciones del cine seleccionado. Es decir, una lista objetos, donde cada objeto tendrá tres propiedades: nombre de la película, género de la misma y hora de la función.
 Junto con dos operaciones públicas, una que permita cambiar el nombre del cinema actualmente seleccionado y otra que permita cambiar la fecha.
 
-```java
+```javascript
  api = apimock;
 var app = (function (){
 	var cine;
@@ -87,7 +87,7 @@ Sobre el listado resultante, haga otro 'map', que tome cada uno de estos element
 6. Asocie la operación antes creada (la de app.js) al evento 'on-click' del botón de consulta de la página.
 7. Verifique el funcionamiento de la aplicación. Inicie el servidor, abra la aplicación HTML5/JavaScript, y rectifique que al ingresar un cine existente, y una fecha en donde estén agendadas funciones, se cargue el listado de funciones del mismo.
 	
-```java
+```javascript
  function table(cinemas) {
         cinemas = _map(cinemas);
 		$("#table").find('tbody').empty();
@@ -127,7 +127,33 @@ Sobre el listado resultante, haga otro 'map', que tome cada uno de estos element
 2. Al módulo app.js agregue una operación que, dado el nombre de un cine, la fecha (con hora de la función "yyyy-mm-dd hh:mm"), y el nombre de la película dados como parámetros, haciendo uso del método getFunctionsByCinemaAndDate de apimock.js y de una función callback:
 Consulte los asientos de la función correspondiente, y con los mismos dibuje la respectiva sala del cine, haciendo uso de los elementos HTML5 (Canvas, 2DContext, etc) disponibles* Actualice con jQuery el campodonde se muestra el nombre de la película de la función que se está viendo (si dicho campo no existe, agruéguelo al DOM).
 3. Verifique que la aplicación ahora, además de mostrar el listado de las funciones del cine, permita seleccionar una de éstas y graficar su disponibilidad. Para esto, haga que en las filas generadas para el punto 5 incluyan en la última columna un botón con su evento de clic asociado a la operación hecha anteriormente (enviándo como parámetro los nombres correspondientes).
+4. Verifique que la aplicación ahora permita: consultar las funciones de un cine y graficar la disponibilidad de asientos de aquella que se seleccione.
+5. Una vez funcione la aplicación (sólo front-end), haga un módulo (llámelo 'apiclient') que tenga las mismas operaciones del 'apimock', pero que para las mismas use datos reales consultados del API REST. Para lo anterior revise cómo hacer peticiones GET con jQuery, y cómo se maneja el esquema de callbacks en este contexto.
 
+```javascript
+apimock = (function () {
+            var url = "http://localhost:8080/cinemas"
+
+            var  getFunctionsByCinemaAndDate = function(cinema_name,cinema_date,callback){
+                $.getJSON(url+"/"+name+"/"+date,(data)=>{
+                    callback(data);
+                },null)
+            };
+
+            return {
+                getFunctionsByCinemaAndDate:getFunctionsByCinemaAndDate
+
+
+            }
+
+ })();
+```
+6. Modifique el código de app.js de manera que sea posible cambiar entre el 'apimock' y el 'apiclient' con sólo una línea de código.
+```javascript
+var api = apimock;
+//var api = apiclient;
+```
+7. Revise la documentación y ejemplos de los estilos de Bootstrap (ya incluidos en el ejercicio), agregue los elementos necesarios a la página para que sea más vistosa, y más cercana al mock dado al inicio del enunciado.
 	
 ## Authors
 
