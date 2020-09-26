@@ -152,6 +152,8 @@ var api = apimock;
 //var api = apiclient;
 ```
 7. Revise la documentación y ejemplos de los estilos de Bootstrap (ya incluidos en el ejercicio), agregue los elementos necesarios a la página para que sea más vistosa, y más cercana al mock dado al inicio del enunciado.
+
+	![image](https://github.com/csarssj/ARSW-LAB-5/blob/master/img/4.png)
 	
 ## Authors
 
