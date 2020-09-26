@@ -60,7 +60,7 @@ var app = (function (){
         setMovie(cinema_movie);
         if (cine != "" && cinema_date != "" ) {
             console.log("entra");
-            api.getFunctionsByCinemaAndDateAndMovie(cine,cinema_date,cinema_movie,fun);
+            api.getFunctionsByCinemaAndDateAndMovie(cine,cinema_date,cinema_movie,getSeats);
             //api.getFunctionsByCinemaAndDate(cinema_name,cinema_date,fun);
             //api.getFunctionsByCinema(cinema_name,fun);
         }
@@ -68,13 +68,26 @@ var app = (function (){
     var getFunctionsByCinema =  function (cinema_name) {
 
     };
-    var getSeats =  function (seats) {
-        var seat = seats.seats;
+    var getSeats =  function (func) {
+       /* var seats = func.seats;
         var c = document.getElementById("myCanvas");
-        var ctx = a.getContext("2d");
-        ctx.fillStyle = "#FF0000";
-        ctx.fillRect(20, 20, 150, 100);
-        console.log(seats)
+        var ctx = c.getContext("2d");*/
+        var dispo = func.seats;
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var y1=40;
+        for (x of dispo){
+            var x1=0;
+            for (y of x){
+                if(y==true){
+                    ctx.fillStyle = "blue";
+                }
+                else{ctx.fillStyle = "red";}
+                x1+=40;
+                ctx.fillRect(x1, y1  ,30, 30);
+            }
+            y1  +=45;
+        }
 
     };
     var fun=function(list){
